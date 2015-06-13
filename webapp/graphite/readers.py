@@ -157,6 +157,7 @@ class WhisperReader(object):
     return IntervalSet( [Interval(start, end)] )
 
   def fetch(self, startTime, endTime):
+    log.info("start whisper reader")
     data = whisper.fetch(self.fs_path, startTime, endTime)
     # if not data:
     #   return None
