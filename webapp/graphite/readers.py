@@ -158,8 +158,8 @@ class WhisperReader(object):
 
   def fetch(self, startTime, endTime):
     data = whisper.fetch(self.fs_path, startTime, endTime)
-    if not data:
-      return None
+    # if not data:
+    #   return None
 
     time_info, values = data
     (start,end,step) = time_info
