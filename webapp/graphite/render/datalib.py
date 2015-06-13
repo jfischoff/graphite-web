@@ -96,7 +96,7 @@ def fetchData(requestContext, pathExpr):
 
   def _fetchData(pathExpr,startTime, endTime, requestContext, seriesList):
     matching_nodes = STORE.find(pathExpr, startTime, endTime, local=requestContext['localOnly'])
-    log.info("matching_nodes " + str(matching_nodes))
+    log.info("matching_nodes " + str([node for node in matching_nodes]))
     log.info("is leafs" + str([node.is_leaf for node in matching_nodes]))
     fetches = [(node, node.fetch(startTime, endTime)) for node in matching_nodes if node.is_leaf]
 
