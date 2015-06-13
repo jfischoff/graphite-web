@@ -160,6 +160,7 @@ class WhisperReader(object):
     data = whisper.fetch(self.fs_path, startTime, endTime)
     # if not data:
     #   return None
+    log.info("data " + data)
 
     time_info, values = data
     (start,end,step) = time_info
@@ -170,6 +171,8 @@ class WhisperReader(object):
     except:
       log.exception("Failed CarbonLink query '%s'" % self.real_metric_path)
       cached_datapoints = []
+
+    log.info("cached_datatpoints" + cached_datapoints);
 
     if isinstance(cached_datapoints, dict):
       cached_datapoints = cached_datapoints.items()
